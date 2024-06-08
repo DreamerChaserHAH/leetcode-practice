@@ -1,19 +1,16 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main(){
-    vector<int> a = {7, 6, 4, 3, 1};
-    int lowestPoint = a[0];
-    int maxProfit = 0;
-    for(int i = 1; i < a.size(); i++){
-        if(a[i] < lowestPoint){
-            lowestPoint = a[i];
-        }else{
-            maxProfit = max(maxProfit, a[i] - lowestPoint);
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+        int lowestPoint = prices[0];
+        int maxProfit = 0;
+        for(int i = 1; i < prices.size(); i++){
+            if(prices[i] < lowestPoint){
+                lowestPoint = prices[i];
+            }else{
+                maxProfit = max(maxProfit, prices[i] - lowestPoint);
+            }
         }
+        return maxProfit;
     }
-    cout << maxProfit << endl;
-    return 0;
-}
+};
